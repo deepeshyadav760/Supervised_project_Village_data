@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Model Prediction</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+
+}
+
+h1 {
+    text-align: center;
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="number"] {
+    width: calc(100% - 12px);
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: #78a2cf;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+#prediction-result {
+    margin-top: 238px;
+    text-align: center;
+    font-weight: bold;
+    margin-right: 70px;
+}
+    .header {
+        background-color: #78a2cf; /* Blue shade */
+        background-image: url("/static/image2.jpeg");
+        background-size: cover; 
+        background-blend-mode: color-burn; 
+        border-width: inherit;
+        color: #ffffff; /* White text */
+        padding: 20px 10px; /* Top and bottom padding, minimal horizontal padding */
+        text-align: center; /* Center-align the text */
+        border-radius: 6px; /* Rounded corners */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+        margin-bottom: 20px; /* Space below header */
+    }
+    
+    .header h1 {
+        margin: 0; /* Remove default margin */
+        font-size: 24px; /* Increased font size for visibility */
+        font-weight: normal; /* Normal font weight to keep it simple and modern */
+    }
+
+    .image-container {
+            display: none;
+            text-align: center;
+        }
+        </style>
+</head>
+<body>
+    <header class="header">
+    <h1>Model Prediction for budget</h1>
+    </header>
+  <div style="display: flex;">
+    <form id="prediction-form">
+        <label for="shgs_vos">Number of SHGs federated into Village Organisations (VOS):</label>
+        <input type="number" id="shgs_vos" name="shgs_vos" step="any" required min="0"><br><br>
+        
+        <label for="shgs_loans">Number of SHGs which accessed bank loans:</label>
+        <input type="number" id="shgs_loans" name="shgs_loans" step="any" required><br><br>
+        
+        <label for="beneficiaries_health">Number of beneficiaries receiving benefits under health scheme:</label>
+        <input type="number" id="beneficiaries_health" name="beneficiaries_health" step="any" required><br><br>
+        
+        <label for="households_food_grains">Total number of households receiving food grains:</label>
+        <input type="number" id="households_food_grains" name="households_food_grains" step="any" required><br><br>
+        
+        <label for="total_farmers">Total number of farmers:</label>
+        <input type="number" id="total_farmers" name="total_farmers" step="any" required><br><br>
+        
+        <label for="expenditure_nrm">Total expenditure approved under NRM:</label>
+        <input type="number" id="expenditure_nrm" name="expenditure_nrm" step="any" required><br><br>
+        
+        
+        <button type="submit">Predict</button>
+    </form>
+
+    <div class="image-container">
+        <img id="loading-image" src="https://media.tenor.com/3hmkCltAKz0AAAAi/bomb-cartoon.gif" alt="Loading"/>
+        
+    </div>
+    <h1 id="prediction-result"></h1>
+
+</div>
+    <script>
+        document.getElementById('prediction-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var imageContainer = document.querySelector('.image-container');
+            document.getElementById('prediction-result').innerText = ""
+            imageContainer.style.display = 'block';
+
+            var formData = {
+                'NUMBER OF SHGS FEDERATED INTO VILLAGE ORGANISATIONS (VOS)': parseFloat(document.getElementById('shgs_vos').value),
+                'NUMBER OF SHGS WHICH ACCESSED BANK LOANS': parseFloat(document.getElementById('shgs_loans').value),
+                'NUMBER OF BENEFICIARIES RECEIVING BENEFITS UNDER AAYUSHMAN BHARAT-PRADHAN MANTRI JAN AROGYA YOJANA OR ANY STATE GOVT HEALTH SCHEME': parseFloat(document.getElementById('beneficiaries_health').value),
+                'TOTAL NUMBER OF HOUSEHOLDS RECEIVING FOOD GRAINS FROM FAIR PRICE SHOPS ': parseFloat(document.getElementById('households_food_grains').value),
+                'TOTAL NUMBER OF FARMERS ': parseFloat(document.getElementById('total_farmers').value),
+                'TOTAL EXPENDITURE APPROVED UNDER NRM IN THE LABOUR BUDGET FOR THE YEAR 2018-19)': parseFloat(document.getElementById('expenditure_nrm').value),
+               
+            };
+
+            fetch('/Linear_predict', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                var prediction = "Budget: " + data.prediction; // Get the prediction result from the response
+
+                setTimeout(function() {
+                    imageContainer.style.display = 'none'; // Hide the GIF
+                    document.getElementById('prediction-result').innerText = prediction; // Update the result text
+                }, 3500); // Delay the update for 4 seconds after receiving the data
+            });
+        });
+    </script>
+</body>
+</html>

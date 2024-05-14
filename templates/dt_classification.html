@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DT Model Prediction</title>
+</head>
+<body>
+    <h1>DT Model Prediction</h1>
+    <form id="prediction-form">
+        <!-- Numeric Inputs -->
+    <!-- NUMBER OF TOTAL POPULATION -->
+    <label for="total_population">Number of Total Population:</label>
+    <input type="number" id="total_population" name="NUMBER OF TOTAL POPULATION" required><br><br>
+
+    <!-- NUMBER OF HOUSEHOLDS ENGAGED MAJORLY IN FARM ACTIVITIES -->
+    <label for="farm_households">Number of Households Engaged Majorly in Farm Activities:</label>
+    <input type="number" id="farm_households" name="NUMBER OF HOUSEHOLDS ENGAGED MAJORLY IN FARM ACTIVITIES" required><br><br>
+
+    <!-- NUMBER OF HOUSEHOLDS ENGAGED MAJORLY IN NON-FARM ACTIVITIES -->
+    <label for="non_farm_households">Number of Households Engaged Majorly in Non-Farm Activities:</label>
+    <input type="number" id="non_farm_households" name="NUMBER OF HOUSEHOLDS ENGAGED MAJORLY IN NON-FARM ACTIVITIES" required><br><br>
+
+    <!-- TOTAL AREA IRRIGATED (IN HECTARE), IF IN ACRES DIVIDE BY 2.47 -->
+    <label for="irrigated_area">Total Area Irrigated (in hectares):</label>
+    <input type="number" id="irrigated_area" name="TOTAL AREA IRRIGATED (IN HECTARE), IF IN ACRES DIVIDE BY 2.47" required><br><br>
+
+    <!-- TOTAL UNIRRIGATED LAND AREA (IN HECTARES), IF IN ACRES DIVIDE BY 2.47 -->
+    <label for="unirrigated_area">Total Unirrigated Land Area (in hectares):</label>
+    <input type="number" id="unirrigated_area" name="TOTAL UNIRRIGATED LAND AREA (IN HECTARES), IF IN ACRES DIVIDE BY 2.47" required><br><br>
+
+    <!-- AVAILABILITY OF HIGHER/SENIOR SECONDARY SCHOOL -->
+    <label for="secondary_school">Availability of Higher/Senior Secondary School:</label>
+    <input type="number" id="secondary_school" name="AVAILABILITY OF HIGHER/SENIOR SECONDARY SCHOOL" required><br><br>
+
+    <!-- NUMBER OF HOUSEHOLDS MOBILIZED INTO SHGS -->
+    <label for="shg_households">Number of Households Mobilized Into SHGs:</label>
+    <input type="number" id="shg_households" name="NUMBER OF HOUSEHOLDS MOBILIZED INTO SHGS" required><br><br>
+
+    <!-- NUMBER OF HOUSEHOLDS HAVING PIPED WATER CONNECTION -->
+    <label for="water_connection">Number of Households Having Piped Water Connection:</label>
+    <input type="number" id="water_connection" name="NUMBER OF HOUSEHOLDS HAVING PIPED WATER CONNECTION" required><br><br>
+
+    <!-- AVAILABILITY OF GOVERNMENT SEED CENTRES -->
+    <label for="seed_centres">Availability of Government Seed Centres:</label>
+    <select id="seed_centres" name="AVAILABILITY OF GOVERNMENT SEED CENTRES">
+        <option value="Yes" selected>Yes</option>
+        <option value="No (Nearest facility < 1 km)">No (Nearest facility &lt; 1 km)</option>
+        <option value="No (Nearest facility 1-2 kms)">No (Nearest facility 1-2 kms)</option>
+        <option value="No (Nearest facility 2-5 kms)">No (Nearest facility 2-5 kms)</option>
+        <option value="No (Nearest facility 5-10 kms)">No (Nearest facility 5-10 kms)</option>
+        <option value="No (Nearest facilityMore than 10 kms)">No (Nearest facilityMore than 10 kms)</option>
+    </select><br><br>
+
+    <!-- WHETHER THIS VILLAGE IS A PART OF THE WATERSHED DEVELOPMENT PROJaECT -->
+    <label for="watershed">Whether This Village is a Part of the Watershed Development Project:</label>
+    <select id="watershed" name="WHETHER THIS VILLAGE IS A PART OF THE WATERSHED DEVELOPMENT PROJECT">
+        <option value="Yes" selected>Yes</option>
+        <option value="No">No</option>
+    </select><br><br>
+
+    <!-- AVAILABILITY OF COMMUNITY RAIN WATER HARVESTING SYSTEM/POND/DAM/CHECK DAM ETC. -->
+    <label for="rainwater_harvesting">Availability of Community Rain Water Harvesting System/Pond/Dam/Check Dam etc.:</label>
+    <select id="rainwater_harvesting" name="AVAILABILITY OF COMMUNITY RAIN WATER HARVESTING SYSTEM/POND/DAM/CHECK DAM ETC.">
+        <option value="Yes" selected>Yes</option>
+        <option value="No">No</option>
+    </select><br><br>
+
+    <!-- AVAILABILITY OF WAREHOUSE FOR FOOD GRAIN STORAGE -->
+    <label for="warehouse">Availability of Warehouse for Food Grain Storage:</label>
+    <select id="warehouse" name="AVAILABILITY OF WAREHOUSE FOR FOOD GRAIN STORAGE ">
+        <option value="Yes" selected>Yes</option>
+        <option value="No (Nearest facility < 1 km)">No (Nearest facility &lt; 1 km)</option>
+        <option value="No (Nearest facility 1-2 kms)">No (Nearest facility 1-2 kms)</option>
+        <option value="No (Nearest facility 2-5 kms)">No (Nearest facility 2-5 kms)</option>
+        <option value="No (Nearest facility 5-10 kms)">No (Nearest facility 5-10 kms)</option>
+        <option value="No (Nearest facilityMore than 10 kms)">No (Nearest facilityMore than 10 kms)</option>
+    </select><br><br>
+
+    <!-- DOES THE VILLAGE HAVE ACCESS TO CUSTOM HIRING CENTRE (AGRI-EQUIPMENTS) -->
+    <label for="custom_hiring">Does the Village Have Access to Custom Hiring Centre (Agri-Equipments):</label>
+    <select id="custom_hiring" name="DOES THE VILLAGE HAVE ACCESS TO CUSTOM HIRING CENTRE (AGRI-EQUIPMENTS) ">
+        <option value="Yes" selected>Yes</option>
+        <option value="No">No</option>
+    </select><br><br>
+
+    <!-- AVAILABILITY OF SOIL TESTING CENTRES -->
+    <label for="soil_testing">Availability of Soil Testing Centres:</label>
+    <select id="soil_testing" name="AVAILABILITY OF SOIL TESTING CENTRES">
+        <option value="Yes" selected>Yes</option>
+        <option value="No (Nearest facility &lt; 1 km)">No (Nearest facility &lt; 1 km)</option>
+        <option value="No (Nearest facility 1-2 kms)">No (Nearest facility 1-2 kms)</option>
+        <option value="No (Nearest facility 2-5 kms)">No (Nearest facility 2-5 kms)</option>
+        <option value="No (Nearest facility 5-10 kms)">No (Nearest facility 5-10 kms)</option>
+        <option value="No (Nearest facilityMore than 10 kms)">No (Nearest facilityMore than 10 kms)</option>
+    </select><br><br>
+
+    <!-- AVAILABILITY OF FERTILIZER SHOP -->
+    <label for="fertilizer_shop">Availability of Fertilizer Shop:</label>
+    <select id="fertilizer_shop" name="AVAILABILITY OF FERTILIZER SHOP">
+        <option value="Yes" selected>Yes</option>
+        <option value="No (Nearest facility &lt; 1 km)">No (Nearest facility &lt; 1 km)</option>
+        <option value="No (Nearest facility 1-2 kms)">No (Nearest facility 1-2 kms)</option>
+        <option value="No (Nearest facility 2-5 kms)">No (Nearest facility 2-5 kms)</option>
+        <option value="No (Nearest facility 5-10 kms)">No (Nearest facility 5-10 kms)</option>
+        <option value="No (Nearest facilityMore than 10 kms)">No (Nearest facilityMore than 10 kms)</option>
+    </select><br><br>
+
+    <!-- AVAILABILITY OF MILK COLLECTION CENTRE /MILK ROUTES / CHILLING CENTRES -->
+    <label for="milk_collection">Availability of Milk Collection Centre /Milk Routes / Chilling Centres:</label>
+    <select id="milk_collection" name="AVAILABILITY OF MILK COLLECTION CENTRE /MILK ROUTES / CHILLING CENTRES ">
+        <option value="Yes" selected>Yes</option>
+        <option value="No">No</option>
+    </select><br><br>
+
+    <!-- AVAILABILITY OF VETERINARY CLINIC OR HOSPITAL -->
+    <label for="veterinary_clinic">Availability of Veterinary Clinic or Hospital:</label>
+    <select id="veterinary_clinic" name="AVAILABILITY OF VETERINARY CLINIC OR HOSPITAL">
+        <option value="Yes" selected>Yes</option>
+        <option value="No (Nearest facility &lt; 1 km)">No (Nearest facility &lt; 1 km)</option>
+        <option value="No (Nearest facility 1-2 kms)">No (Nearest facility 1-2 kms)</option>
+        <option value="No (Nearest facility 2-5 kms)">No (Nearest facility 2-5 kms)</option>
+        <option value="No (Nearest facility 5-10 kms)">No (Nearest facility 5-10 kms)</option>
+        <option value="No (Nearest facilityMore than 10 kms)">No (Nearest facilityMore than 10 kms)</option>
+    </select><br><br>
+
+    <!-- AVAILABILITY OF PIPED TAP WATER -->
+    <label for="piped_water">Availability of Piped Tap Water:</label>
+    <select id="piped_water" name="AVAILABILITY OF PIPED TAP WATER">
+        <option value="100% habitations covered" selected>100% habitations covered</option>
+        <option value="50 to 100% habitations covered">50 to 100% habitations covered</option>
+        <option value="<50% habitation covered">&lt;50% habitation covered</option>
+        <option value="None (Nearest facilityMore than 10 kms)">None (Nearest facilityMore than 10 kms)</option>
+        <option value="only one habitation is covered">only one habitation is covered</option>
+        <option value="None (Nearest facility2-5 kms)">None (Nearest facility2-5 kms)</option>
+        <option value="None (Nearest facility5-10 kms)">None (Nearest facility5-10 kms)</option>
+        <option value="None (Nearest facility1-2 kms)">None (Nearest facility1-2 kms)</option>
+    </select><br><br>
+
+    <!-- AVAILABILITY OF MARKETS -->
+    <label for="markets">Availability of Markets:</label>
+    <select id="markets" name="AVAILABILITY OF MARKETS">
+        <option value="Sub Centre" selected>Sub Centre</option>
+        <option value="PHC">PHC</option>
+        <option value="CHC">CHC</option>
+        <option value="None (Nearest facility &lt; 1 km)">None (Nearest facility &lt; 1 km)</option>
+        <option value="None (Nearest facility 1-2 kms)">None (Nearest facility 1-2 kms)</option>
+        <option value="None (Nearest facility 2-5 kms)">None (Nearest facility 2-5 kms)</option>
+        <option value="None (Nearest facility 5-10 kms)">None (Nearest facility 5-10 kms)</option>
+        <option value="None (Nearest facilityMore than 10 kms)">None (Nearest facilityMore than 10 kms)</option>
+    </select><br><br>
+
+    <!-- BEE KEEPING -->
+    <label for="bee_keeping">Bee Keeping:</label>
+    <select id="bee_keeping" name="BEE KEEPING">
+        <option value="Yes" selected>Yes</option>
+        <option value="No">No</option>
+    </select><br><br>
+
+    <!-- SERICULTURE (SILK PRODUCTION) -->
+    <label for="sericulture">Sericulture (Silk Production):</label>
+    <select id="sericulture" name="SERICULTURE (SILK PRODUCTION)">
+        <option value="Yes" selected>Yes</option>
+        <option value="No">No</option>
+    </select><br><br>
+
+    <!-- HANDLOOM -->
+    <label for="handloom">Handloom:</label>
+    <select id="handloom" name="HANDLOOM">
+        <option value="Yes" selected>Yes</option>
+        <option value="No">No</option>
+    </select><br><br>
+
+    <!-- HANDICRAFTS -->
+    <label for="handicrafts">Handicrafts:</label>
+    <select id="handicrafts" name="HANDICRAFTS">
+        <option value="Yes" selected>Yes</option>
+        <option value="No">No</option>
+    </select><br><br>
+
+    <!-- AVAILABILITY OF COMMUNITY FOREST -->
+    <label for="community_forest">Availability of Community Forest:</label>
+    <select id="community_forest" name="AVAILABILITY OF COMMUNITY FOREST">
+        <option value="Yes" selected>Yes</option>
+        <option value="No">No</option>
+    </select><br><br>
+
+    <!-- AVAILABILITY OF PRIMARY PROCESSING FACILITIES AT THE VILLAGE LEVEL -->
+    <label for="processing_facilities">Availability of Primary Processing Facilities at the Village Level:</label>
+    <select id="processing_facilities" name="AVAILABILITY OF PRIMARY PROCESSING FACILITIES AT THE VILLAGE LEVEL">
+        <option value="Yes" selected>Yes</option>
+        <option value="No">No</option>
+    </select><br><br>
+
+
+        <button type="submit">Predict</button>
+    </form>
+
+    <div id="prediction-result"></div>
+
+    <script>
+        document.getElementById('prediction-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+    
+            // Object to hold form data
+            var formData = {};
+    
+            // Extract numeric input values
+            formData['TOTAL AREA IRRIGATED (IN HECTARE), IF IN ACRES DIVIDE BY 2.47'] = parseFloat(document.getElementById('irrigated_area').value);
+            formData['TOTAL UNIRRIGATED LAND AREA (IN HECTARES), IF IN ACRES DIVIDE BY 2.47'] = parseFloat(document.getElementById('unirrigated_area').value);
+            formData['NUMBER OF TOTAL POPULATION'] = parseFloat(document.getElementById('total_population').value);
+            formData['NUMBER OF HOUSEHOLDS ENGAGED MAJORLY IN FARM ACTIVITIES'] = parseFloat(document.getElementById('farm_households').value);
+            formData['NUMBER OF HOUSEHOLDS ENGAGED MAJORLY IN NON-FARM ACTIVITIES'] = parseFloat(document.getElementById('non_farm_households').value);
+            formData['AVAILABILITY OF HIGHER/SENIOR SECONDARY SCHOOL'] = parseFloat(document.getElementById('secondary_school').value);
+            formData['NUMBER OF HOUSEHOLDS MOBILIZED INTO SHGS'] = parseFloat(document.getElementById('shg_households').value);
+            formData['NUMBER OF HOUSEHOLDS HAVING PIPED WATER CONNECTION'] = parseFloat(document.getElementById('water_connection').value);
+    
+            // Extract categorical input values
+            var categoricalFields = {
+                'AVAILABILITY OF GOVERNMENT SEED CENTRES': 'seed_centres',
+                'WHETHER THIS VILLAGE IS A PART OF THE WATERSHED DEVELOPMENT PROJECT': 'watershed',
+                'AVAILABILITY OF COMMUNITY RAIN WATER HARVESTING SYSTEM/POND/DAM/CHECK DAM ETC.': 'rainwater_harvesting',
+                'AVAILABILITY OF WAREHOUSE FOR FOOD GRAIN STORAGE ': 'warehouse',
+                'DOES THE VILLAGE HAVE ACCESS TO CUSTOM HIRING CENTRE (AGRI-EQUIPMENTS) ': 'custom_hiring',
+                'AVAILABILITY OF SOIL TESTING CENTRES': 'soil_testing',
+                'AVAILABILITY OF FERTILIZER SHOP': 'fertilizer_shop',
+                'AVAILABILITY OF MILK COLLECTION CENTRE /MILK ROUTES / CHILLING CENTRES ': 'milk_collection',
+                'AVAILABILITY OF VETERINARY CLINIC OR HOSPITAL': 'veterinary_clinic',
+                'AVAILABILITY OF PIPED TAP WATER': 'piped_water',
+                'AVAILABILITY OF MARKETS': 'markets',
+                'BEE KEEPING': 'bee_keeping',
+                'SERICULTURE (SILK PRODUCTION)': 'sericulture',
+                'HANDLOOM': 'handloom',
+                'HANDICRAFTS': 'handicrafts',
+                'AVAILABILITY OF COMMUNITY FOREST': 'community_forest',
+                'AVAILABILITY OF PRIMARY PROCESSING FACILITIES AT THE VILLAGE LEVEL': 'processing_facilities'
+            };
+    
+            Object.keys(categoricalFields).forEach(function(field) {
+                var elementId = categoricalFields[field];
+                formData[field] = document.getElementById(elementId).value;
+            });
+    
+            // Send form data to server
+            fetch('/DT_predict', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Display prediction result
+                document.getElementById('prediction-result').innerText = 'Prediction: ' + data.prediction;
+            });
+        });
+        </script>
+    </body>
+    </html>
